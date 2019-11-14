@@ -3,53 +3,43 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.28.0.0
-Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Paul Katin, kpi, LIC=----
+IDE-Version: µVision V5.27.0.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Oleksandr Khyzhniak, University, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.28.0.0
+Toolchain:       MDK-Lite  Version: 5.27.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
 Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.28.0.0
-Dialog DLL:      DCM.DLL V1.17.3.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
-Dialog DLL:      TCM.DLL V1.36.2.0
+CPU DLL:         SARMCM3.DLL V5.27.0.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-C:\Users\38050\Desktop\ADS_BUFFER_01_02_IN _BU+DISPL\UART to RF24.uvprojx
-Project File Date:  11/04/2019
+E:\Ðàáî÷èé ñòîë\Programing\Ì³êðîêîíòðîëåðè\ADC\UART to RF24.uvprojx
+Project File Date:  11/14/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-compiling delay.c...
-compiling buffer.c...
-buffer.c(53): warning:  #1-D: last line of file ends without a newline
-  	}
-buffer.c: 1 warning, 0 errors
+Build target 'Target 1'
 compiling main.c...
-compiling ADC.c...
-ADC.c(89): warning:  #111-D: statement is unreachable
-  	delay_ms(10);
-ADC.c: 1 warning, 0 errors
-compiling tm1637.c...
-compiling misc.c...
-compiling stm32f10x_adc.c...
-compiling stm32f10x_gpio.c...
-compiling stm32f10x_rcc.c...
-compiling DMA_STM32F10x.c...
-compiling stm32f10x_usart.c...
-assembling startup_stm32f10x_md.s...
-compiling GPIO_STM32F10x.c...
-compiling system_stm32f10x.c...
+CircularBuffer.h(24): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(30): warning:  #223-D: function "malloc" declared implicitly
+  	cbptr = (circularBuffer_t *)malloc (sizeof (circularBuffer_t));     
+main.c(44): warning:  #223-D: function "buffer_add" declared implicitly
+  		buffer_add(cbptr, ADC_read());
+main.c(46): warning:  #223-D: function "buffer_read" declared implicitly
+      TM1637_display_all(buffer_read(cbptr));
+main.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=2820 RO-data=288 RW-data=20 ZI-data=1668  
-".\Objects\UART to RF24.axf" - 0 Error(s), 2 Warning(s).
+Program Size: Code=3530 RO-data=286 RW-data=20 ZI-data=1636  
+".\Objects\UART to RF24.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -76,11 +66,11 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   .\RTE\Device\STM32F103C8
   .\RTE\_Target_1
-  C:\Users\38050\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include
-  C:\Users\38050\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\DSP\Include
-  C:\Users\38050\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include
-  C:\Users\38050\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc
-  C:\Users\38050\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\DSP\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver
 
 <h2>Collection of Component Files used:</h2>
 
@@ -95,38 +85,38 @@ Package Vendor: Keil
       Source file:   RTE_Driver\DMA_STM32F10x.c
 
    * Component: Keil::Device:GPIO:1.3
-      Include file:  RTE_Driver\GPIO_STM32F10x.h
       Source file:   RTE_Driver\GPIO_STM32F10x.c
+      Include file:  RTE_Driver\GPIO_STM32F10x.h
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\system_stm32f10x.c
-      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
 
    * Component: Keil::Device:StdPeriph Drivers:ADC:3.5.0
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_adc.h
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_adc.c
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.5.1
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
+      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
       Include file:  Device\StdPeriph_Driver\inc\misc.h
       Source file:   Device\StdPeriph_Driver\src\misc.c
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
 
    * Component: Keil::Device:StdPeriph Drivers:GPIO:3.5.0
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_gpio.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_gpio.h
 
    * Component: Keil::Device:StdPeriph Drivers:RCC:3.5.0
-      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_rcc.h
+      Source file:   Device\StdPeriph_Driver\src\stm32f10x_rcc.c
 
    * Component: Keil::Device:StdPeriph Drivers:USART:3.5.0
       Source file:   Device\StdPeriph_Driver\src\stm32f10x_usart.c
       Include file:  Device\StdPeriph_Driver\inc\stm32f10x_usart.h
-Build Time Elapsed:  00:00:11
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
