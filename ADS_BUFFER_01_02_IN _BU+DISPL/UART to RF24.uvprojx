@@ -398,16 +398,6 @@
               <FilePath>.\delay.h</FilePath>
             </File>
             <File>
-              <FileName>buffer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\buffer.c</FilePath>
-            </File>
-            <File>
-              <FileName>buffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\buffer.h</FilePath>
-            </File>
-            <File>
               <FileName>ADC.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\ADC.c</FilePath>
@@ -426,6 +416,11 @@
               <FileName>tm1637.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\tm1637.h</FilePath>
+            </File>
+            <File>
+              <FileName>CircularBuffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CircularBuffer.c</FilePath>
             </File>
           </Files>
         </Group>
