@@ -1,53 +1,68 @@
 #include "buffer.h"
-#include "tm1637.h"
-#include "delay.h"
-unsigned char rIN=0;// for buffer add
-unsigned char rOUT=0;// for  buffer read
-unsigned int rBuffer [BUF_SIZE_8];// buf size BUF_SIZE sign 
+#include "stdlib.h"
 
-void buffer_add(unsigned int val)
+int *normalize(int *min, int *max, int *c)
 {
-	rBuffer[rIN++] = val;
-	// Sense in mask value. Value is 0111111 (VALUE!!)
-	// If next rang (razriad) then to 0
-    rIN &= BUF_MASK_8;// Set to 0. Ring Buffer 
+    if (c >= max)
+    {
+        return min;
+    }
+    if (c < min)
+    {
+        return max;
+    }
+    return c;
 }
 
-
-unsigned int buffer_read(void)
+int cbuf_read(struct Buffer *b)
 {
-	unsigned int val;
-  val=rBuffer[rOUT++];
-  // Sense in mask value. Value is 0111111 (VALUE!!)
-  // If next rang (razriad) then to 0
-    rOUT &= BUF_MASK_8;// Set to 0. Ring Buffer 
-  return val;
+    if (b->disposed)
+    {
+        return -1;
+    }
+    b->currentRead = normalize(b->array, b->array + b->size, b->currentRead + 1);
+    return *b->currentRead;
 }
 
-
-unsigned int buffer_avg(void)
+void cbuf_write(struct Buffer *b, int value)
 {
-	long long summ=0;
-	for(int i=0;i<BUF_SIZE_8;i++)summ+=rBuffer[i];
-	summ=summ/BUF_SIZE_8;
-	return summ;
+    if (b->disposed)
+    {
+        return;
+    }
+    *b->currentWrite = value;
+    b->currentWrite = normalize(b->array,b->array + b->size, b->currentWrite + 1);
 }
 
-
-///////test buff
-void test_buff_load(unsigned int load)
+int cbuf_avg(struct Buffer *b)
 {
-	for (int i=0; i<load; i++)
-		{
-		buffer_add(i);
-		}
-	}
+    if (b->disposed)
+    {
+        return -1;
+    }
+    int result = 0;
+    for (int i = 0; i < b->size; i++)
+    {
+        result += b->array[i];
+    }
 
-void test_buff_displ(unsigned int load)
-{	
-	for (int i=0; i<load; i++)
-		{
-		TM1637_display_all(buffer_read());
-			delay_ms(1000);
-		}
-	}
+    return result / b->size;
+}
+
+void cbuf_dispose(struct Buffer *b)
+{
+    b->disposed = 1;
+    free(b->array);
+}
+
+struct Buffer cbuf_new(int size)
+{
+    struct Buffer buf;
+    buf.disposed = 0;
+    buf.size = size;
+    int *array = (int *)calloc(size, sizeof(int));
+    buf.array = array;
+    buf.currentRead = array;
+    buf.currentWrite = array;
+    return buf;
+}

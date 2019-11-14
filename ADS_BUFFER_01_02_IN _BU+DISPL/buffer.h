@@ -1,22 +1,15 @@
-#include "tm1637.h"
-#define BUF_SIZE_128 128
-#define BUF_SIZE_64  64
-#define BUF_SIZE_16  16
-#define BUF_SIZE_8   8 
-#define BUF_SIZE_4   4
+struct Buffer
+{
+    int disposed;
+    int size;
+    int* array;
+    int* currentWrite;
+    int* currentRead;
+};
 
-#define BUF_MASK_128  (BUF_SIZE_128-1)
-#define BUF_MASK_64   (BUF_SIZE_64-1)
-#define BUF_MASK_16   (BUF_SIZE_16-1)
-#define BUF_MASK_8    (BUF_SIZE_8-1)
-#define BUF_MASK_4    (BUF_SIZE_4-1)
+int cbuf_read(struct Buffer* b);
+void cbuf_write(struct Buffer* b, int value);
+int cbuf_avg(struct Buffer* b);
+void cbuf_dispose(struct Buffer* b);
 
-extern unsigned char rIN, rOUT;
-extern unsigned int rBuffer [BUF_SIZE_8];//-!!
-
-void buffer_add(unsigned int val);
-unsigned int buffer_avg(void);
-unsigned int buffer_read(void);
-
-void test_buff_load(unsigned int load);
-void test_buff_displ(unsigned int load);
+struct Buffer cbuf_new(int size);
