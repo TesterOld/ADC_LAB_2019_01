@@ -4,7 +4,7 @@
 ".\objects\buffer.o"
 ".\objects\adc.o"
 ".\objects\tm1637.o"
-"..\..\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\DSP\Lib\ARM\arm_cortexM3l_math.lib"
+"D:\KEIL ZALUPA\projects\ARM\CMSIS\5.6.0\CMSIS\DSP\Lib\ARM\arm_cortexM3l_math.lib"
 ".\objects\misc.o"
 ".\objects\stm32f10x_adc.o"
 ".\objects\stm32f10x_gpio.o"

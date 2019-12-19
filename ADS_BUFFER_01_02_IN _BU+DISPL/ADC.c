@@ -57,14 +57,17 @@ void ADC_init(void)
     // enable ADC system clock
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
  
-    // define ADC config
+    // define ADC config 
     ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
-    ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+		ADC_DiscModeChannelCountConfig(ADC2,3);
+		ADC_DiscModeCmd(ADC2,ENABLE);
+    ADC_InitStructure.ADC_ScanConvMode = ENABLE;
     ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;  // we work in continuous sampling mode
     ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
     ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
     ADC_InitStructure.ADC_NbrOfChannel = 1;
- 
+    ADC_ExternalTrigConvCmd(ADC2, ENABLE);
+		ADC_SoftwareStartConvCmd(ADC2, DISABLE);
     ADC_RegularChannelConfig(ADC1,ADC_Channel_1, 1,ADC_SampleTime_28Cycles5); // define regular conversion config
     ADC_Init ( ADC1, &ADC_InitStructure);   //set config of ADC1
  
