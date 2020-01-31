@@ -477,15 +477,14 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_md.d -o.\objects\startup_stm32f10x_md.
-o -I.\RTE\Device\STM32F103C8 -I.\RTE\_Target_1 -IC:\Users\38050\AppData\Local\A
-rm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include -IC:\Users\38050\AppData\Local\Arm\
-Packs\ARM\CMSIS\5.6.0\CMSIS\DSP\Include -IC:\Users\38050\AppData\Local\Arm\Pack
-s\Keil\STM32F1xx_DFP\2.3.0\Device\Include -IC:\Users\38050\AppData\Local\Arm\Pa
-cks\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\inc -IC:\Users\38050\AppDa
-ta\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver --predefine="__EVAL SETA
- 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ SETA 1" --prede
-fine="STM32F10X_MD SETA 1" --list=.\listings\startup_stm32f10x_md.lst RTE\Devic
-e\STM32F103C8\startup_stm32f10x_md.s
+o -I.\RTE\Device\STM32F103C8 -I.\RTE\_Target_1 -I"D:\KEIL ZALUPA\projects\ARM\C
+MSIS\5.6.0\CMSIS\Core\Include" -I"D:\KEIL ZALUPA\projects\ARM\CMSIS\5.6.0\CMSIS
+\DSP\Include" -I"D:\KEIL ZALUPA\projects\Keil\STM32F1xx_DFP\2.3.0\Device\Includ
+e" -I"D:\KEIL ZALUPA\projects\Keil\STM32F1xx_DFP\2.3.0\Device\StdPeriph_Driver\
+inc" -I"D:\KEIL ZALUPA\projects\Keil\STM32F1xx_DFP\2.3.0\RTE_Driver" --predefin
+e="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="_RTE_ S
+ETA 1" --predefine="STM32F10X_MD SETA 1" --list=.\listings\startup_stm32f10x_md
+.lst RTE\Device\STM32F103C8\startup_stm32f10x_md.s
 
 
 
